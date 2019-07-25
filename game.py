@@ -31,17 +31,18 @@ myFont = pygame.font.SysFont("monospace", 35)
 clock = pygame.time.Clock()
 
 def set_level(score, SPEED):
-    if score < 10:
-        SPEED = 5
-    elif score > 10 and score < 20:
-        SPEED = 7
-    elif score > 20 and score < 30:
-        SPEED = 9
-    elif score > 30 and score < 40:
-        SPEED = 11
+    # if score < 10:
+    #     SPEED = 5
+    # elif score > 10 and score < 20:
+    #     SPEED = 6
+    # elif score > 20 and score < 30:
+    #     SPEED = 7
+    # elif score > 30 and score < 40:
+    #     SPEED = 11
 
-    else:
-        SPEED = 13
+    # else:
+    #     SPEED = 13
+    SPEED = score/5 + 4
     return SPEED
 
 def drop_enemies(enemy_list):
@@ -125,7 +126,7 @@ while not game_over:
 
     if collision_check(enemy_list,player_pos):
         game_over = True
-        
+        break
     draw_enemies(enemy_list)
     
     pygame.draw.rect(screen, PINK, (player_pos[0], player_pos[1],player_size,player_size))
